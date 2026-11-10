@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>MELO AI Software Engineer — Hire One AI Employee, Five Jobs in One</title>
+<meta name="description" content="MELO's AI Software Engineer builds full-stack apps, backends, automations, fixes bugs, and ships tested work — $1,500/mo after a 5-day free trial. Payment by check." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0d1117;
+    --bg-2:#11161f;
+    --bg-3:#161c27;
+    --panel:#131924;
+    --line:#232c3d;
+    --line-soft:#1b2333;
+    --ink:#eef2f8;
+    --ink-2:#b8c2d4;
+    --ink-3:#8492a9;
+    --accent:#f2b544;      /* amber — workshop / build energy */
+    --accent-ink:#1a1405;
+    --teal:#37c8a3;
+    --teal-dim:#123c32;
+    --red:#e0655f;
+    --radius:14px;
+    --max:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16.5px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Sora",system-ui,sans-serif;line-height:1.15;margin:0;letter-spacing:-0.01em}
+  p{margin:0}
+  a{color:inherit}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:rgba(13,17,23,.88);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .topbar-in{display:flex;align-items:center;gap:18px;height:62px}
+  .brand{font-family:"Sora",sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+  .brand span{color:var(--accent)}
+  .brand small{display:block;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:10px;letter-spacing:.22em;color:var(--ink-3);margin-top:1px}
+  nav.main{margin-left:auto;display:flex;gap:26px}
+  nav.main a{color:var(--ink-2);text-decoration:none;font-size:14.5px;font-weight:600}
+  nav.main a:hover{color:var(--ink)}
+  .top-cta{margin-left:8px}
+  @media (max-width:820px){ nav.main{display:none} .top-cta{margin-left:auto} }
+  @media (max-width:560px){
+    .topbar .top-cta{display:none}
+    .topbar-in{height:56px}
+    .brand{font-size:15.5px}
+  }
+
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--accent);color:var(--accent-ink);
+    font-family:"Sora",sans-serif;font-weight:700;font-size:15.5px;
+    padding:13px 22px;border-radius:10px;border:1px solid var(--accent);
+    text-decoration:none;cursor:pointer;transition:transform .12s ease, background .12s ease;
+  }
+  .btn:hover{background:#ffc95e}
+  .btn:active{transform:translateY(1px)}
+  .btn.small{padding:9px 16px;font-size:14px}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--ink-3);background:var(--bg-3)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 54px;border-bottom:1px solid var(--line-soft);
+    background:
+      radial-gradient(700px 340px at 85% -60px, rgba(242,181,84,.10), transparent 60%),
+      var(--bg);}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .hero{padding:44px 0 40px} }
+  .tagline{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;
+    color:var(--teal);border:1px solid var(--teal-dim);background:rgba(55,200,163,.07);
+    padding:6px 12px;border-radius:999px;margin-bottom:20px;text-transform:uppercase;
+  }
+  .tagline::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h1{font-size:clamp(36px,5.2vw,56px);font-weight:800}
+  h1 .hl{color:var(--accent)}
+  .hero-sub{color:var(--ink-2);font-size:18.5px;margin-top:18px;max-width:34em}
+  .hero-sub strong{color:var(--ink)}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .hero-note{margin-top:14px;color:var(--ink-3);font-size:14px}
+  .hero-note b{color:var(--ink-2);font-weight:600}
+
+  /* terminal card */
+  .term{
+    background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+  .term-head{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line-soft);background:var(--bg-3)}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .term-title{margin-left:8px;font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-3)}
+  .term-body{padding:18px 18px 14px;font-family:"JetBrains Mono",monospace;font-size:13.5px;line-height:1.5}
+  .t-row{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line-soft)}
+  .t-row:last-of-type{border-bottom:none}
+  .t-arrow{color:var(--accent);flex:none}
+  .t-label{color:var(--ink);font-weight:500}
+  .t-desc{color:var(--ink-3);display:block;font-size:12.5px}
+  .chip{margin-left:auto;flex:none;align-self:flex-start;font-size:10.5px;letter-spacing:.08em;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);text-transform:uppercase}
+  .chip.done{color:var(--teal);border-color:var(--teal-dim)}
+  .chip.gate{color:var(--accent);border-color:#4a3a14;background:rgba(242,181,84,.08)}
+  .term-foot{padding:12px 18px;border-top:1px solid var(--line-soft);color:var(--ink-3);font-size:13px;display:flex;gap:8px;align-items:center}
+  .term-foot .mono{color:var(--teal);font-size:12.5px}
+
+  /* principles strip */
+  .strip{border-bottom:1px solid var(--line-soft);background:var(--bg-2)}
+  .strip-in{display:grid;grid-template-columns:repeat(4,1fr);}
+  @media (max-width:860px){ .strip-in{grid-template-columns:repeat(2,1fr)} }
+  .strip-item{padding:20px 22px;border-left:1px solid var(--line-soft)}
+  .strip-item:first-child{border-left:none}
+  @media (max-width:860px){ .strip-item:nth-child(3){border-left:none} .strip-item{border-top:1px solid var(--line-soft)} .strip-item:nth-child(-n+2){border-top:none} }
+  .strip-item b{display:block;font-family:"Sora",sans-serif;font-size:15px;margin-bottom:3px}
+  .strip-item span{color:var(--ink-3);font-size:13.5px;line-height:1.45;display:block}
+
+  /* ---------- sections ---------- */
+  section{padding:68px 0}
+  section.alt{background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .sec-head{max-width:720px;margin-bottom:36px}
+  .sec-kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+  h2{font-size:clamp(27px,3.6vw,38px);font-weight:700}
+  .sec-lede{color:var(--ink-2);margin-top:12px;font-size:17.5px}
+
+  /* five jobs */
+  .jobs{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+  @media (max-width:820px){ .jobs{grid-template-columns:1fr} }
+  .job{display:flex;gap:18px;padding:22px 0;border-top:1px solid var(--line-soft);text-align:left;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;color:inherit;font:inherit;cursor:pointer}
+  .job:first-child{border-top:none;padding-top:6px}
+  @media (max-width:820px){ .job:first-child{border-top:1px solid var(--line-soft);padding-top:22px} .job:first-of-type{border-top:none;padding-top:6px} }
+  .job-num{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--accent);border:1px solid #4a3a14;background:rgba(242,181,84,.07);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+  .job h3{font-size:18.5px;font-weight:600;margin-bottom:5px}
+  .job p{color:var(--ink-2);font-size:15.5px}
+  .job .more{color:var(--ink-3);font-size:13.5px;margin-top:7px;display:none}
+  .job.open .more{display:block}
+  .job.open h3{color:var(--accent)}
+  .jobs-hint{color:var(--ink-3);font-size:13.5px;margin-top:6px}
+
+  .capability{
+    margin-top:40px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;
+  }
+  @media (max-width:640px){ .capability{grid-template-columns:1fr} }
+  .cap-badge{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.14em;color:var(--teal);border:1px solid var(--teal-dim);padding:7px 10px;border-radius:8px;text-transform:uppercase;white-space:nowrap}
+  .capability h3{font-size:20px;margin-bottom:7px}
+  .capability p{color:var(--ink-2)}
+
+  /* how it works */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media (max-width:900px){ .steps{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:520px){ .steps{grid-template-columns:1fr} }
+  .step{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .step .n{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:12.5px;letter-spacing:.16em;margin-bottom:10px}
+  .step h3{font-size:16.5px;margin-bottom:6px}
+  .step p{color:var(--ink-2);font-size:14.5px}
+
+  /* trial */
+  .trial-panel{
+    background:linear-gradient(180deg, rgba(242,181,84,.08), rgba(242,181,84,.02));
+    border:1px solid #4a3a14;border-radius:18px;padding:36px;
+  }
+  @media (max-width:640px){ .trial-panel{padding:24px} }
+  .trial-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  @media (max-width:860px){ .trial-grid{grid-template-columns:1fr} }
+  .trial-panel h2{font-size:clamp(26px,3.4vw,34px)}
+  .trial-panel .lede{color:var(--ink-2);margin-top:12px;font-size:17px}
+  .trial-facts{margin-top:22px;display:grid;gap:10px}
+  .trial-facts li{list-style:none;display:flex;gap:10px;color:var(--ink-2);font-size:15.5px}
+  .trial-facts{padding:0}
+  .tick{color:var(--teal);font-weight:700;flex:none}
+  .days{display:grid;gap:0}
+  .day{display:flex;gap:16px;padding:14px 0;border-top:1px solid rgba(242,181,84,.22)}
+  .day:first-child{border-top:none;padding-top:2px}
+  .day .d{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--accent);border:1px solid #4a3a14;border-radius:8px;padding:5px 9px;height:fit-content;white-space:nowrap;background:rgba(13,17,23,.5)}
+  .day b{display:block;font-family:"Sora",sans-serif;font-size:15.5px}
+  .day span{color:var(--ink-2);font-size:14.5px}
+
+  /* pricing */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  @media (max-width:940px){ .plans{grid-template-columns:1fr;max-width:560px} }
+  .plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column}
+  .plan.featured{border-color:var(--accent);background:linear-gradient(180deg, rgba(242,181,84,.07), var(--panel) 55%)}
+  .plan-flag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;min-height:16px}
+  .plan h3{font-size:20px}
+  .price{font-family:"Sora",sans-serif;font-size:40px;font-weight:800;margin:12px 0 2px}
+  .price small{font-size:15px;font-weight:600;color:var(--ink-3)}
+  .price-note{color:var(--ink-3);font-size:13.5px;margin-bottom:18px}
+  .plan ul{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:9px}
+  .plan li{display:flex;gap:9px;color:var(--ink-2);font-size:15px}
+  .plan li::before{content:"—";color:var(--accent);flex:none}
+  .plan .btn{margin-top:auto;justify-content:center}
+  .plan .btn.ghost{color:var(--ink)}
+  .plans-note{margin-top:20px;color:var(--ink-3);font-size:14.5px;max-width:760px}
+  .plans-note b{color:var(--ink-2)}
+
+  /* payment */
+  .pay-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  @media (max-width:860px){ .pay-grid{grid-template-columns:1fr} }
+  .pay-steps{display:grid;gap:14px;margin-top:6px}
+  .pay-step{display:flex;gap:14px}
+  .pay-step .n{font-family:"JetBrains Mono",monospace;color:var(--bg);background:var(--teal);font-size:12.5px;font-weight:700;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
+  .pay-step p{color:var(--ink-2);font-size:15.5px}
+  .pay-step p b{color:var(--ink)}
+  .mailbox{
+    border:1.5px dashed #55617a;border-radius:var(--radius);padding:24px;background:var(--bg);
+  }
+  .mailbox .lbl{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin-bottom:10px}
+  .mailbox .addr{font-size:17px;font-weight:600;line-height:1.5}
+  .mailbox .sub{color:var(--ink-3);font-size:13.5px;margin-top:10px}
+
+  /* faq */
+  .faq{max-width:820px}
+  details{border-top:1px solid var(--line-soft)}
+  details:last-child{border-bottom:1px solid var(--line-soft)}
+  summary{cursor:pointer;padding:18px 4px;font-family:"Sora",sans-serif;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:20px;flex:none}
+  details[open ] summary::after{content:"–"}
+  details .a{padding:0 4px 20px;color:var(--ink-2);font-size:15.5px;max-width:46em}
+
+  /* final cta */
+  .final{background:var(--bg-3);border:1px solid var(--line);border-radius:18px;padding:40px;text-align:left;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+  @media (max-width:820px){ .final{grid-template-columns:1fr;padding:28px} }
+  .final h2{font-size:clamp(25px,3.2vw,33px)}
+  .final p{color:var(--ink-2);margin-top:10px}
+  .final-side{border-left:1px solid var(--line);padding-left:32px}
+  @media (max-width:820px){ .final-side{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:22px} }
+  .final-side ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px}
+  .final-side li{display:flex;gap:9px;color:var(--ink-2);font-size:15px}
+  .trial-form{display:grid;gap:10px;margin-top:4px}
+  .trial-form label{font-size:13px;font-weight:600;color:var(--ink-2);display:grid;gap:5px}
+  .trial-form input,.trial-form textarea{background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:11px 13px;font:inherit;font-size:15px;width:100%}
+  .trial-form input:focus,.trial-form textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .trial-form textarea{resize:vertical;min-height:74px}
+  .trial-form .btn{border:none;cursor:pointer;font:inherit}
+  .form-msg{font-size:14.5px;margin:2px 0 0;display:none}
+  .form-msg.ok{display:block;color:var(--teal)}
+  .form-msg.err{display:block;color:var(--red)}
+
+  footer{border-top:1px solid var(--line-soft);padding:28px 0 40px;color:var(--ink-3);font-size:13.5px}
+  .foot-in{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+  footer .mono{font-size:12px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">MELO <span>WORKFORCE</span><small>AI DIGITAL EMPLOYEES</small></a>
+    <nav class="main" aria-label="Page">
+      <a href="#jobs">What it does</a>
+      <a href="#trial">5-day trial</a>
+      <a href="#plans">Plans</a>
+      <a href="#payment">Payment</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn small top-cta" href="#start">Start the 5-day free trial</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tagline">Now onboarding first pilot customers</span>
+        <h1>Hire an AI<br />Software <span class="hl">Engineer</span>.</h1>
+        <p class="hero-sub">One AI employee from <strong>MELO Workforce</strong> that does <strong>five jobs in one</strong> — it builds your software, keeps it running, and fixes it when it breaks. You describe the outcome; it plans the work, builds it, tests it, and reports what was delivered.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#start">Start the 5-day free trial</a>
+          <a class="btn ghost" href="#plans">See plans — from $1,500/mo</a>
+        </div>
+        <p class="hero-note"><b>No payment details needed to start the trial.</b> See real work first, then decide.</p>
+      </div>
+
+      <div class="term" aria-label="How a task moves through MELO">
+        <div class="term-head">
+          <span class="dot" style="background:#e0655f"></span>
+          <span class="dot" style="background:#f2b544"></span>
+          <span class="dot" style="background:#37c8a3"></span>
+          <span class="term-title">melo — task-to-completion</span>
+        </div>
+        <div class="term-body">
+          <div class="t-row"><span class="t-arrow">▸</span><div><span class="t-label">You describe the outcome</span><span class="t-desc">“Add online booking to our website.”</span></div><span class="chip done">Done</span></div>
+          <div class="t-row"><span class="t-arrow">▸</span><div><span class="t-label">MELO plans the work</span><span class="t-desc">Tasks, order, and what “finished” means.</span></div><span class="chip done">Done</span></div>
+          <div class="t-row"><span class="t-arrow">▸</span><div><span class="t-label">Engineer builds &amp; tests it</span><span class="t-desc">Code written, automated tests run.</span></div><span class="chip done">Done</span></div>
+          <div class="t-row"><span class="t-arrow">▸</span><div><span class="t-label">You approve before it goes live</span><span class="t-desc">Nothing ships to production without your OK.</span></div><span class="chip gate">Your call</span></div>
+          <div class="t-row"><span class="t-arrow">▸</span><div><span class="t-label">Delivery report</span><span class="t-desc">Completed, pending, and anything unverified — stated plainly.</span></div><span class="chip">Report</span></div>
+        </div>
+        <div class="term-foot"><span class="mono">$ melo status</span><span>— every task tracked, every result checked.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES STRIP -->
+  <div class="strip">
+    <div class="wrap strip-in">
+      <div class="strip-item"><b>You approve go-live</b><span>Human approval before anything reaches production.</span></div>
+      <div class="strip-item"><b>Tested before delivery</b><span>Work is tested and reviewed before it’s handed over.</span></div>
+      <div class="strip-item"><b>5-day free trial</b><span>One real piece of work, delivered before you pay anything.</span></div>
+      <div class="strip-item"><b>Simple monthly billing</b><span>One monthly price, paid by check. No card on file.</span></div>
+    </div>
+  </div>
+
+  <!-- FIVE JOBS -->
+  <section id="jobs">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">One hire · Five jobs</p>
+        <h2>Not five separate services. One engineer that does all of it.</h2>
+        <p class="sec-lede">Hiring this work out piecemeal means a web developer, a backend developer, an automation consultant, and someone on call for fixes. The MELO AI Software Engineer covers the whole stack, continuously.</p>
+      </div>
+
+      <div class="jobs">
+        <button class="job" type="button" aria-expanded="false">
+          <span class="job-num">01</span>
+          <span><h3>Builds full-stack websites &amp; web apps</h3>
+          <p>Complete applications — the pages your customers see and the systems behind them — built from an agreed specification.</p>
+          <span class="more">Business websites, customer portals, booking flows, dashboards, and internal tools. Built as real, working software you own — not a mock-up.</span></span>
+        </button>
+        <button class="job" type="button" aria-expanded="false">
+          <span class="job-num">02</span>
+          <span><h3>Backend, APIs &amp; databases</h3>
+          <p>The behind-the-scenes layer: storing your data properly and letting your tools talk to each other.</p>
+          <span class="more">User accounts, order and customer records, and APIs that connect your app to the other software your business already runs on.</span></span>
+        </button>
+        <button class="job" type="button" aria-expanded="false">
+          <span class="job-num">03</span>
+          <span><h3>Automations &amp; integrations</h3>
+          <p>Connects your tools so manual, repetitive work happens on its own.</p>
+          <span class="more">Form submissions flowing into your records, notifications sent automatically, data moved between systems — the busywork that eats your team’s hours.</span></span>
+        </button>
+        <button class="job" type="button" aria-expanded="false">
+          <span class="job-num">04</span>
+          <span><h3>Bug fixes &amp; ongoing maintenance</h3>
+          <p>Something breaks, it gets fixed. Your software stays updated instead of slowly going stale.</p>
+          <span class="more">Defect fixes, dependency and security updates, and small improvements over time — handled as part of the monthly plan, not a new project every time.</span></span>
+        </button>
+        <button class="job" type="button" aria-expanded="false">
+          <span class="job-num">05</span>
+          <span><h3>Testing, deployment &amp; delivery reports</h3>
+          <p>Work is tested before launch, prepared for deployment, and reported back in plain language.</p>
+          <span class="more">You get a clear report of what was completed, what’s pending, and what couldn’t be verified. If something isn’t proven done, it isn’t reported as done.</span></span>
+        </button>
+      </div>
+      <p class="jobs-hint">Tap any job to read more.</p>
+
+      <div class="capability">
+        <span class="cap-badge">What makes it different</span>
+        <div>
+          <h3>Continuous maintenance, not a one-time website</h3>
+          <p>Most software is bought once and then left to age. The MELO AI Software Engineer works against your application <strong>over time</strong> — building, fixing, testing, and improving it month after month. Every change is tested and reviewed, and nothing goes to production without your approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="alt" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">The Task-to-Completion Engine</p>
+        <h2>You ask for an outcome. MELO handles the steps.</h2>
+        <p class="sec-lede">Behind the employee is MELO’s Task-to-Completion Engine — the system that turns a plain-language request into finished, verified work.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><p class="n">STEP 1</p><h3>Describe the goal</h3><p>Say what needs to get done in ordinary language. MELO clarifies anything that’s genuinely unclear before starting.</p></div>
+        <div class="step"><p class="n">STEP 2</p><h3>MELO plans &amp; builds</h3><p>The goal is broken into tasks with a clear definition of “done.” The Software Engineer builds and tests against it.</p></div>
+        <div class="step"><p class="n">STEP 3</p><h3>You approve the big moves</h3><p>Deployments and other consequential actions pause for your approval. Nothing goes live behind your back.</p></div>
+        <div class="step"><p class="n">STEP 4</p><h3>You get the report</h3><p>A final summary separates completed, pending, failed, and unverified work — with the evidence for each.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIAL -->
+  <section id="trial">
+    <div class="wrap">
+      <div class="trial-panel">
+        <div class="trial-grid">
+          <div>
+            <p class="sec-kicker">Start here</p>
+            <h2>The 5-day free trial</h2>
+            <p class="lede">Don’t take our word for it. Give MELO <strong>one small, defined piece of work</strong> and judge the actual output. If it delivers, you continue on a monthly plan. If it doesn’t, you’ve paid nothing.</p>
+            <ul class="trial-facts">
+              <li><span class="tick">✓</span> One defined piece of work — agreed with you up front</li>
+              <li><span class="tick">✓</span> Delivered within 5 days, with a delivery report</li>
+              <li><span class="tick">✓</span> No payment details needed to start</li>
+              <li><span class="tick">✓</span> No obligation to continue afterwards</li>
+            </ul>
+            <div style="margin-top:26px"><a class="btn" href="#start">Start the 5-day free trial</a></div>
+          </div>
+          <div class="days" aria-label="Trial timeline">
+            <div class="day"><span class="d">DAY 1</span><div><b>Define the work</b><span>We agree on one small piece of work and what “finished” looks like.</span></div></div>
+            <div class="day"><span class="d">DAYS 2–4</span><div><b>Build &amp; test</b><span>The AI Software Engineer builds it and runs its tests. You can check in any time.</span></div></div>
+            <div class="day"><span class="d">DAY 5</span><div><b>Delivery &amp; report</b><span>You receive the finished work plus a plain-language report of what was done and verified.</span></div></div>
+            <div class="day"><span class="d">AFTER</span><div><b>Your decision</b><span>Continue on a monthly plan, or walk away — the trial work is yours either way.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="alt" id="plans">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">Monthly plans</p>
+        <h2>Three plans. Nothing under $1,500.</h2>
+        <p class="sec-lede">Every plan is a monthly subscription for an AI employee that keeps working — not a one-off project fee. Start with the Software Engineer; grow into a department when you’re ready.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan featured">
+          <p class="plan-flag">Start here · The Software Engineer</p>
+          <h3>Single Employee</h3>
+          <p class="price">$1,500<small> /month</small></p>
+          <p class="price-note">One AI employee, one defined workflow.</p>
+          <ul>
+            <li>The AI Software Engineer, configured for your business</li>
+            <li>Builds, backends, automations, fixes &amp; maintenance</li>
+            <li>Testing and deployment preparation</li>
+            <li>Your approval before anything goes live</li>
+            <li>Delivery reports on the work done</li>
+          </ul>
+          <a class="btn" href="#start">Start the 5-day free trial</a>
+        </article>
+
+        <article class="plan">
+          <p class="plan-flag">Three employees, coordinated</p>
+          <h3>Department</h3>
+          <p class="price">$3,500<small> /month</small></p>
+          <p class="price-note">Three AI employees working as one team.</p>
+          <ul>
+            <li>Any three MELO AI employees</li>
+            <li>Shared task tracking through the Task-to-Completion Engine</li>
+            <li>Employees hand work to each other</li>
+            <li>Approval inbox for consequential actions</li>
+            <li>Consolidated activity &amp; delivery reporting</li>
+          </ul>
+          <a class="btn ghost" href="#start">Start the 5-day free trial</a>
+        </article>
+
+        <article class="plan">
+          <p class="plan-flag">The full workforce</p>
+          <h3>Full Workforce</h3>
+          <p class="price">From $7,500<small> /month</small></p>
+          <p class="price-note">All five employees plus the full engine.</p>
+          <ul>
+            <li>Executive Operator</li>
+            <li>Revenue Recovery</li>
+            <li>Customer Resolution</li>
+            <li>Procurement</li>
+            <li>Software Engineer</li>
+            <li>Full Task-to-Completion Engine — planning, verification &amp; reporting</li>
+          </ul>
+          <a class="btn ghost" href="#start">Start the 5-day free trial</a>
+        </article>
+      </div>
+
+      <p class="plans-note"><b>Straightforward terms:</b> plans are billed monthly and paid by check (see below). The 5-day trial comes first, so your first monthly payment only starts once you’ve seen real work and decided to continue.</p>
+    </div>
+  </section>
+
+  <!-- PAYMENT -->
+  <section id="payment">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">Payment</p>
+        <h2>Paid monthly, by check. That’s it.</h2>
+        <p class="sec-lede">For now, MELO accepts one payment method: a paper check, mailed monthly. No cards, no payment links, nothing charged automatically.</p>
+      </div>
+      <div class="pay-grid">
+        <div class="pay-steps">
+          <div class="pay-step"><span class="n">1</span><p><b>Start with the free trial.</b> No payment — and no payment details — are needed to begin.</p></div>
+          <div class="pay-step"><span class="n">2</span><p><b>Decide after you see the work.</b> If you continue, your monthly plan starts and your first month is invoiced.</p></div>
+          <div class="pay-step"><span class="n">3</span><p><b>Mail a check each month</b> for your plan amount — $1,500, $3,500, or your Full Workforce rate.</p></div>
+          <div class="pay-step"><span class="n">4</span><p><b>Your employee keeps working</b> for as long as your plan is active.</p></div>
+          <div class="pay-step"><span class="n">5</span><p><b>Access stays active while the monthly payment is current</b> — if a month's check hasn't been received, the service locks until payment arrives.</p></div>
+        </div>
+        <div class="mailbox">
+          <p class="lbl">Where to mail checks</p>
+          <p class="addr">Make checks payable to:<br />Melokuhle Msweli<br />27 Masonic St Ste 1<br />New London, CT 06320</p>
+          <p class="sub">Mail your monthly check, payable to Melokuhle Msweli, to the address above. Your plan stays active while payments continue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="alt" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">Questions</p>
+        <h2>Before you ask</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>What exactly happens in the 5-day trial?</summary>
+          <p class="a">We agree on one small, defined piece of work — for example, a landing page, a bug fix, or one automation. The AI Software Engineer builds and tests it over the following days, and by day 5 you receive the finished work with a delivery report. It’s free, needs no payment details, and carries no obligation to continue.</p>
+        </details>
+        <details>
+          <summary>Is this a real product, or a concept?</summary>
+          <p class="a">MELO Workforce is a new product, and this page is honest about that: we are onboarding our first pilot customers now, starting with the AI Software Engineer. That’s exactly why the trial exists — you judge real delivered work before paying anything, instead of trusting claims.</p>
+        </details>
+        <details>
+          <summary>What can the Software Engineer actually build?</summary>
+          <p class="a">Full-stack websites and web applications, the backends, APIs and databases behind them, automations and integrations between your tools, plus ongoing bug fixes and maintenance. Work is built from an agreed specification, tested, and prepared for deployment — with your approval before it goes live.</p>
+        </details>
+        <details>
+          <summary>Will it change my live website without telling me?</summary>
+          <p class="a">No. Production deployments and other consequential actions require your explicit approval first. You also receive delivery reports that separate what was completed from what is pending or unverified.</p>
+        </details>
+        <details>
+          <summary>How do I pay?</summary>
+          <p class="a">By check, monthly — currently the only payment method MELO accepts. Make checks payable to Melokuhle Msweli and mail them to 27 Masonic St Ste 1, New London, CT 06320. No card is kept on file and nothing is charged automatically. Access stays active while the monthly payment is current — if a month's check hasn't been received, the service locks until payment arrives.</p>
+        </details>
+        <details>
+          <summary>What if I want more than the Software Engineer later?</summary>
+          <p class="a">Move up a plan. Department gives you any three coordinated MELO AI employees for $3,500/mo, and Full Workforce gives you all five — Executive Operator, Revenue Recovery, Customer Resolution, Procurement, and Software Engineer — plus the full Task-to-Completion Engine, from $7,500/mo.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="start">
+    <div class="wrap">
+      <div class="final">
+        <div>
+          <h2>See what it delivers in 5 days — free.</h2>
+          <p>Start right here on this page — fill in the form, describe the one piece of work you want done, and your request comes straight to us. There’s <strong>no automated checkout</strong> and this page never collects payment. We’ll reply to your email to agree the scope before anything starts.</p>
+        </div>
+        <div class="final-side">
+          <ul>
+            <li><span class="tick">✓</span> One defined piece of work, agreed up front</li>
+            <li><span class="tick">✓</span> Delivered in 5 days with a report</li>
+            <li><span class="tick">✓</span> No payment details to start</li>
+            <li><span class="tick">✓</span> Continue at $1,500/mo only if it earns it</li>
+          </ul>
+          <form class="trial-form" id="trialForm" novalidate>
+            <label>Business name
+              <input type="text" name="business" required autocomplete="organization" placeholder="e.g. Sunrise Cafe">
+            </label>
+            <label>Your name
+              <input type="text" name="name" required autocomplete="name" placeholder="Your full name">
+            </label>
+            <label>Email
+              <input type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com">
+            </label>
+            <label>Phone <span style="color:var(--ink-3);font-weight:400">(optional)</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="(860) 555-0123">
+            </label>
+            <label>Your website <span style="color:var(--ink-3);font-weight:400">(optional)</span>
+              <input type="text" name="website" placeholder="yourbusiness.com — or “none yet”">
+            </label>
+            <label>The one job you’d give MELO first
+              <textarea name="job" required placeholder="e.g. Fix my website — it still has placeholder text and no menu"></textarea>
+            </label>
+            <button class="btn" type="submit" id="trialSubmit" style="width:100%;justify-content:center">Request my free 5-day trial</button>
+            <p class="form-msg" id="formMsg" role="status"></p>
+            <p style="color:var(--ink-3);font-size:13px;margin:0">No payment details. Your request goes straight to the owner — we reply by email to agree the scope.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span><span class="mono">MELO WORKFORCE</span> &nbsp;·&nbsp; AI Software Engineer — one employee, five jobs in one.</span>
+    <span>Monthly plans from $1,500 · Payment by check · 5-day free trial</span>
+  </div>
+</footer>
+
+<script>
+  // Trial request form — sends the request to the owner's inbox.
+  (function () {
+    var form = document.getElementById('trialForm');
+    if (!form) return;
+    var msg = document.getElementById('formMsg');
+    var btn = document.getElementById('trialSubmit');
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      msg.className = 'form-msg'; msg.textContent = '';
+      var data = {};
+      var fd = new FormData(form);
+      fd.forEach(function (v, k) { data[k] = String(v).trim(); });
+      if (!data.business || !data.name || !data.email || !data.job) {
+        msg.className = 'form-msg err';
+        msg.textContent = 'Please fill in your business, your name, your email, and the job you want done.';
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      data._subject = 'New MELO trial request — ' + data.business;
+      data._template = 'table';
+      fetch('https://formsubmit.co/ajax/lucian.wertheimer@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('send failed');
+        form.reset();
+        msg.className = 'form-msg ok';
+        msg.textContent = 'Request received — thank you! We\u2019ll reply to your email to agree your trial task.';
+        btn.textContent = 'Request sent ✓';
+      }).catch(function () {
+        msg.className = 'form-msg err';
+        msg.textContent = 'Something went wrong sending that. Please email lucian.wertheimer@gmail.com directly and we\u2019ll set up your trial.';
+        btn.disabled = false; btn.textContent = 'Request my free 5-day trial';
+      });
+    });
+  })();
+</script>
+<script>
+  // Expandable detail for each of the five jobs.
+  document.querySelectorAll('.job').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var open = btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+</script>
+</body>
+</html>
