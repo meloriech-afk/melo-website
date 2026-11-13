@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kafin HVAC — Heating, Cooling &amp; Oil | Woonsocket, RI (DEMO)</title>
+<style>
+  :root { --navy:#1f3a52; --slate:#3d5a73; --accent:#c98a2e; --bg:#f4f2ee; --card:#ffffff; --ink:#22303c; --muted:#5b6b78; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia, 'Times New Roman', serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+  .demo-banner { background:#8a1f1f; color:#fff; text-align:center; padding:10px 16px; font-family:Arial,Helvetica,sans-serif; font-size:14px; letter-spacing:.4px; }
+  .demo-banner strong { text-transform:uppercase; }
+  header { background:var(--navy); color:#fff; padding:14px 20px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; }
+  header .brand { font-size:26px; font-weight:bold; letter-spacing:.5px; }
+  header .brand span { color:var(--accent); }
+  header .contact { text-align:right; font-size:14px; line-height:1.5; }
+  header .contact a { color:#fff; font-weight:bold; font-size:18px; text-decoration:none; }
+  .hero { background:linear-gradient(160deg, var(--navy), var(--slate)); color:#fff; padding:44px 20px 36px; }
+  .hero-inner { max-width:1020px; margin:0 auto; display:grid; grid-template-columns:1.2fr .8fr; gap:32px; }
+  @media (max-width:760px){ .hero-inner{grid-template-columns:1fr;} header .contact{text-align:left;} }
+  .hero h1 { font-size:38px; line-height:1.15; margin-bottom:12px; }
+  .hero p.lede { font-size:18px; opacity:.94; margin-bottom:16px; }
+  .proof-line { font-family:Arial,Helvetica,sans-serif; font-size:15px; background:rgba(255,255,255,.12); border-left:4px solid var(--accent); padding:12px 14px; margin:18px 0; }
+  .proof-line strong { color:#ffd98a; }
+  .badges { font-family:Arial,Helvetica,sans-serif; font-size:14px; display:flex; flex-wrap:wrap; gap:8px; }
+  .badges span { background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); padding:6px 10px; border-radius:20px; }
+  .quote-card { background:var(--card); color:var(--ink); border-radius:10px; padding:22px; box-shadow:0 6px 24px rgba(0,0,0,.25); font-family:Arial,Helvetica,sans-serif; }
+  .quote-card h2 { font-size:20px; color:var(--navy); margin-bottom:4px; }
+  .quote-card p.sub { font-size:13px; color:var(--muted); margin-bottom:14px; }
+  .quote-card label { display:block; font-size:13px; font-weight:bold; margin:10px 0 4px; }
+  .quote-card input, .quote-card select, .quote-card textarea { width:100%; padding:10px; border:1px solid #c8cfd4; border-radius:6px; font-size:15px; font-family:Arial,Helvetica,sans-serif; }
+  .quote-card button { margin-top:14px; width:100%; background:var(--accent); color:#fff; border:none; padding:13px; font-size:16px; font-weight:bold; border-radius:6px; cursor:pointer; }
+  .quote-card .fine { font-size:12px; color:var(--muted); margin-top:10px; }
+  section { max-width:1020px; margin:0 auto; padding:34px 20px; }
+  section h2 { font-size:26px; color:var(--navy); margin-bottom:6px; }
+  section .intro { color:var(--muted); margin-bottom:20px; font-family:Arial,Helvetica,sans-serif; }
+  .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .service { background:var(--card); border:1px solid #e2e0da; border-radius:8px; padding:18px; }
+  .service h3 { font-size:18px; color:var(--navy); margin-bottom:6px; }
+  .service p { font-size:14px; color:var(--muted); font-family:Arial,Helvetica,sans-serif; }
+  .reviews { background:#fff; border:1px solid #e2e0da; border-radius:8px; padding:22px; font-family:Arial,Helvetica,sans-serif; }
+  .reviews .big { font-size:34px; color:var(--navy); font-weight:bold; }
+  .reviews .stars { color:var(--accent); font-size:22px; letter-spacing:2px; }
+  .reviews p { color:var(--muted); font-size:14px; margin-top:8px; }
+  .reviews .sources { font-size:13px; color:var(--muted); margin-top:12px; border-top:1px solid #eee; padding-top:12px; }
+  .why { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; font-family:Arial,Helvetica,sans-serif; }
+  .why div { background:var(--card); border-left:4px solid var(--accent); padding:14px 16px; border-radius:0 8px 8px 0; }
+  .why strong { color:var(--navy); display:block; margin-bottom:4px; }
+  .why p { font-size:14px; color:var(--muted); }
+  .cta-band { background:var(--navy); color:#fff; text-align:center; padding:34px 20px; font-family:Arial,Helvetica,sans-serif; }
+  .cta-band h2 { color:#fff; font-size:26px; margin-bottom:8px; }
+  .cta-band a { display:inline-block; margin-top:12px; background:var(--accent); color:#fff; text-decoration:none; font-weight:bold; padding:13px 26px; border-radius:6px; }
+  footer { background:#16242f; color:#b9c4cc; font-family:Arial,Helvetica,sans-serif; font-size:13px; padding:26px 20px; text-align:center; line-height:1.8; }
+  footer strong { color:#fff; }
+  .note { max-width:1020px; margin:0 auto; padding:0 20px 30px; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="demo-banner"><strong>Demo — not the live site.</strong> Rebuilt homepage preview for Kafin HVAC, made by MELO. The quote form below is a demo and does not send anything.</div>
+
+<header>
+  <div class="brand">KAFIN <span>HVAC</span></div>
+  <div class="contact">
+    <a href="tel:+14017653881">(401) 765-3881</a><br>
+    Mon&ndash;Fri 7:30am&ndash;4:00pm &middot; Woonsocket, RI
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Heating, Cooling &amp; Oil for Woonsocket, RI</h1>
+      <p class="lede">Family-owned since 1987. Heating oil delivery, boilers, HVAC and plumbing across Northern Rhode Island and Southern Massachusetts — done right, by people who answer the phone.</p>
+      <div class="proof-line">
+        <strong>4.7 out of 5 &mdash; 462 ratings</strong> &nbsp;|&nbsp; Free Estimates &nbsp;|&nbsp; 1-Year Free Labor on Installations
+      </div>
+      <div class="badges">
+        <span>Master Licensed Gas Fitters</span>
+        <span>EPA-Certified Technicians</span>
+        <span>Licensed &amp; Insured</span>
+        <span>Same-Day Quotes</span>
+        <span>Service Contracts Available</span>
+      </div>
+    </div>
+    <form class="quote-card" onsubmit="event.preventDefault(); document.getElementById('demo-msg').textContent='Demo only — this form does not send. On the real site, this request would go straight to Kafin HVAC.';">
+      <h2>Request a Quote</h2>
+      <p class="sub">Free estimates. Tell us what you need and we&rsquo;ll call you back.</p>
+      <label for="q-name">Name</label>
+      <input id="q-name" type="text" placeholder="Your name">
+      <label for="q-phone">Phone</label>
+      <input id="q-phone" type="tel" placeholder="(401) 555-0100">
+      <label for="q-service">What do you need?</label>
+      <select id="q-service">
+        <option>Heating oil delivery</option>
+        <option>New heating / cooling system</option>
+        <option>Boiler repair or replacement</option>
+        <option>Air conditioning</option>
+        <option>Plumbing / water heater</option>
+        <option>Service or maintenance</option>
+      </select>
+      <button type="submit">Get My Free Estimate</button>
+      <p class="fine" id="demo-msg">Or call <strong>(401) 765-3881</strong>, Mon&ndash;Fri 7:30am&ndash;4:00pm.</p>
+    </form>
+  </div>
+</div>
+
+<section>
+  <h2>What we do</h2>
+  <p class="intro">One team for the whole house — heating, cooling, oil and plumbing, from the same family business since 1987.</p>
+  <div class="services">
+    <div class="service"><h3>Air Conditioning</h3><p>Install, repair and replace AC systems, including energy-saving models, to keep you cool all summer.</p></div>
+    <div class="service"><h3>Boilers</h3><p>Oil and gas boiler installation, repair and replacement — including efficient Weil-McLain and Navien models.</p></div>
+    <div class="service"><h3>Heating</h3><p>Furnaces and heat pumps installed, repaired and replaced. Trained on all major brands.</p></div>
+    <div class="service"><h3>HVAC</h3><p>Year-round comfort and air quality, including HydroAir ventilation systems and regular maintenance.</p></div>
+    <div class="service"><h3>Oil Delivery</h3><p>Dependable heating oil delivery, with automatic delivery so you never run out of fuel.</p></div>
+    <div class="service"><h3>Oil Heating &amp; Tanks</h3><p>Oil burner service, tank installation and maintenance — keeping your system safe and efficient.</p></div>
+    <div class="service"><h3>Plumbing</h3><p>Water heaters and general plumbing maintenance, with quality brands like Heat-Flo.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>What your neighbours say</h2>
+  <p class="intro">Kafin&rsquo;s own site asks visitors to leave a review — but never shows the ratings it has already earned. Here they are, up front.</p>
+  <div class="reviews">
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="big">4.7 out of 5</div>
+    <p>From 462 ratings shown on Kafin&rsquo;s own website. A separate public listing (Location.com) records 4.8 out of 5 from 396 reviews. Individual customer reviews would be shown here from Kafin&rsquo;s real review profiles — none have been invented for this demo.</p>
+    <p class="sources">Sources: rating shown in the footer of kafinoil.com (4.74/5, 462 ratings, checked 2026-11-13); Location.com 4.8/5, 396 reviews (prior research, 2026-11-11/12). Figures differ slightly by source, so both are named.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why Woonsocket chooses Kafin</h2>
+  <p class="intro">37+ years in business, based at 27 Hamlet Ave, Woonsocket — serving Northern RI and Southern MA.</p>
+  <div class="why">
+    <div><strong>Family-owned since 1987</strong><p>Local, family-run — the same team that answers the phone does the work.</p></div>
+    <div><strong>Master licensed gas fitters</strong><p>Plus EPA-certified technicians and licensed, insured plumbers.</p></div>
+    <div><strong>Free estimates, same-day quotes</strong><p>Know what it costs before you commit. 1-year free labor on installations.</p></div>
+    <div><strong>Service contracts available</strong><p>Regular maintenance that keeps systems running and breakdowns rare.</p></div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Need heat, hot water, or a new system?</h2>
+  <p>Call (401) 765-3881 — Mon&ndash;Fri, 7:30am&ndash;4:00pm — or request a free estimate above.</p>
+  <a href="tel:+14017653881">Call Kafin HVAC</a>
+</div>
+
+<footer>
+  <strong>Kafin HVAC / Kafin Oil-Gas Services</strong><br>
+  27 Hamlet Ave, Woonsocket, RI 02895 &middot; PO Box 1902, Woonsocket, RI 02895<br>
+  (401) 765-3881 &middot; Mon&ndash;Fri 7:30am&ndash;4:00pm &middot; Serving Northern Rhode Island &amp; Southern Massachusetts
+</footer>
+
+<p class="note">Demo notes (for the owner, not for Kafin): built 2026-11-13 from Kafin's live homepage, re-checked the same morning — placeholder heading &ldquo;Request Lorem Epsom&rdquo;, empty reviews section, Cumberland framing, services, hours, phone, address and the 4.74/5 (462) footer rating are all as shown on kafinoil.com that day. No testimonials, prices or review quotes were invented. The quote form is a demo and submits nowhere. Offer to Kafin stays: $5,000 complete website, pay only when finished and approved, check within 24 hours, site/files released once the check is received.</p>
+
+</body>
+</html>
